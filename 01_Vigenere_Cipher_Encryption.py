@@ -11,10 +11,8 @@ def vigenere_cipher_encryption(letters,raw_text,keyword):
     
         else:
             diff = len(raw_text)- len(key)
-            if diff >= len(key):
-                key= key+(diff//len(key)*key)+(key[0:diff%len(key)])
-            else:
-                key= key+key[0:diff]
+            key= key+(diff//len(key)*key)+(key[0:diff%len(key)])
+            
         return key
         
 
@@ -33,8 +31,8 @@ def vigenere_cipher_encryption(letters,raw_text,keyword):
         encrypt_num = []
         for i in range(0,len(raw_num)):
             temp = raw_num[i]+key_num[i]
-            if raw_num[i]+key_num[i] >= len(letters):
-                temp = raw_num[i]+key_num[i] - (len(letters)-1)
+            if temp >= len(letters):
+                temp = temp - (len(letters)-1)
             
             if temp == key_num and raw_num!=0:
                 temp = temp -25
@@ -111,8 +109,8 @@ def vigenere_cipher_decryption(letters,vig_text,keyword):
     return text_back(enc_num,letters)
 
 
-raw_text = "hello"
-keyword = "key"
+raw_text = "helloiamyourhostfortonight"
+keyword = "secret"
 vigenere_text = vigenere_cipher_encryption(letters,raw_text.lower(),keyword.lower())
 print("Encrypted form:",vigenere_text)
 

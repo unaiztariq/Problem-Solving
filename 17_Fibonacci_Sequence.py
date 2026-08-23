@@ -16,8 +16,7 @@ def fibonacci_comma_output(x):
     print("0,1",end="")
     for i in range ( 2,x):
         print(f",{a+b}",end="")
-        a += 1
-        b += 1
+        a,b = b,a+b
 
 
 def fibonacci_with_limit(x):
@@ -27,8 +26,7 @@ def fibonacci_with_limit(x):
     for i in range ( 2,x):
         if a+b != x:
             print(f",{a+b}",end="")
-            a += 1
-            b += 1
+            a,b = b,a+b
         else :
             break
 
